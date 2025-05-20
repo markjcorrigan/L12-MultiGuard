@@ -8,3 +8,8 @@ I updated the code here to use his admin panel and login forms / reset password.
 First prize is a Laravel Starter kit that handles this for Livewire so that forms are updated without a server call.
 My next project is to try to build same using the base code found here.
 I.e. pin down Livewire first to get at that solution.
+
+Note that I pulled in Spatie Honeypot.
+I had a number of issues with this and eventually changed the code in the vendor folder.
+I understand the problems associated with this but decided to comment my input and keep an eye on this.
+I.e. note that if you update Spatie Honeypot a newer version may solve the problem or not.
