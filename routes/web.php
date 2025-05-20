@@ -30,12 +30,15 @@ Route::middleware('admin')->prefix('admin')->group(function () {
 });
 
 Route::prefix('admin')->group(function () {
-    Route::get('/login', [AdminController::class, 'login'])->name('admin_login');
+    //    Route::get('/login', [AdminController::class, 'login'])->name('admin_login');
+    Route::post('/login-submit', [AdminController::class, 'login_submit'])->middleware('honeypot')->name('admin_login_submit');
     Route::post('/login-submit', [AdminController::class, 'login_submit'])->name('admin_login_submit');
     Route::get('/logout', [AdminController::class, 'admin_logout'])->name('admin_logout');
-    Route::get('/forgot-password', [AdminController::class, 'forgot_password'])->name('admin_forgot_password');
+    //    Route::get('/forgot-password', [AdminController::class, 'forgot_password'])->name('admin_forgot_password');
+    Route::post('/forgot-password', [AdminController::class, 'forgot_password_submit'])->middleware('honeypot')->name('admin_forgot_password_submit');
     Route::post('/forgot-password', [AdminController::class, 'forgot_password_submit'])->name('admin_forgot_password_submit');
-    Route::get('/password-reset/{token}/{email}', [AdminController::class, 'admin_reset_password']);
+    //    Route::get('/password-reset/{token}/{email}', [AdminController::class, 'admin_reset_password']);
+    Route::post('/password-reset/{token}/{email}', [AdminController::class, 'admin_reset_password_submit'])->middleware('honeypot')->name('reset_password_submit');
     Route::post('/password-reset/{token}/{email}', [AdminController::class, 'admin_reset_password_submit'])->name('reset_password_submit');
 });
 

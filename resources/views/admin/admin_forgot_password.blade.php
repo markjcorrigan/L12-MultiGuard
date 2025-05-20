@@ -87,6 +87,7 @@
                                     <div>
                                         <form action="{{route('admin_forgot_password_submit')}}" method="POST">
                                             @csrf
+                                            @honeypot
                                             <div class="form-container vertical">
                                                 <div class="form-item vertical">
                                                     <input class="input" type="text" name="email" placeholder="Email">
