@@ -1,7 +1,11 @@
+neon
 parameters:
-  paths:
-    - app
-    - database
-  level: 5 # Levels go from 0 (loose) to 9 (strict)
-  ignoreErrors:
-    - '#Unknown property App\\Models\\User::email_address#'
+    paths:
+        - app
+        - tests
+    level: 5
+    ignoreErrors:
+        - '#.*#'
+    excludePaths:
+        - vendor
+    preset: laravel

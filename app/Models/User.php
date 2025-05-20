@@ -25,9 +25,6 @@ final class User extends Authenticatable implements MustVerifyEmail
         'password',
     ];
 
-    /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable;
-
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -38,7 +35,8 @@ final class User extends Authenticatable implements MustVerifyEmail
         'remember_token',
     ];
 
-    private string $name;
+    /** @use HasFactory<UserFactory> */
+    use HasFactory, Notifiable;
 
     /**
      * Get the user's initials

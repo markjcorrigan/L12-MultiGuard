@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 final class AdminController extends Controller
 {
@@ -62,15 +63,16 @@ final class AdminController extends Controller
     {
         $request->validate([
             'email' => ['required', 'email'],
-
         ]);
-        // dd($request->all());
 
         $admin = Admin::where('email', $request->email)->first();
+
         if (! $admin) {
             return redirect()->back()->with('error', 'Admin with provided email does not exist!');
         }
-        $token = hash('sha256', time());
+
+        $token = Str::random(60);
+
         $admin->token = $token;
         $admin->update();
 
@@ -80,11 +82,11 @@ final class AdminController extends Controller
             'user' => $admin['username'],
             'pResetLink' => $pResetLink,
         ];
+
         Mail::to($request->email)->send(new ResetPassword($subject, $info));
 
-        return redirect()->back()->with('success', 'We have sent a password reset link to your email. Please check your email.  If you do not find the email in your inbox, please check your spam folder.');
-
-    } // End method
+        return redirect()->back()->with('success', 'We have sent a password reset link to your email. Please check your email. If you do not find the email in your inbox, please check your spam folder.');
+    }
 
     public function admin_reset_password($token, $email)
     {

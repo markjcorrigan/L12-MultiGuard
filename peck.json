@@ -1,9 +1,18 @@
 {
     "preset": "laravel",
-    "ignore": {
-        "words": [
+    "rules": {
+        "ignore": [
             "php"
         ],
-        "paths": []
+        "severity": "warning"
+    },
+    "paths": {
+        "include": [
+            "app",
+            "tests"
+        ],
+        "exclude": [
+            "vendor"
+        ]
     }
 }

@@ -150,5 +150,22 @@
         </main>
     </div>
 </div>
+<script>
+    // Get all password fields
+    const passwordFields = document.querySelectorAll('input[type="password"]');
+
+    // Add event listener to each password field's toggle icon
+    passwordFields.forEach((field) => {
+        const toggleIcon = field.parentNode.querySelector('svg');
+        toggleIcon.addEventListener('click', () => {
+            // Toggle password visibility
+            if (field.type === 'password') {
+                field.type = 'text';
+            } else {
+                field.type = 'password';
+            }
+        });
+    });
+</script>
 </body>
 </html>
