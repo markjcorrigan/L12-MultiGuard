@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Settings;
 
 use App\Livewire\Settings\Password;
@@ -9,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Livewire\Livewire;
 use Tests\TestCase;
 
-class PasswordUpdateTest extends TestCase
+final class PasswordUpdateTest extends TestCase
 {
     use RefreshDatabase;
 

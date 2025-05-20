@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Settings;
 
 use App\Livewire\Settings\Profile;
@@ -8,7 +10,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
 use Tests\TestCase;
 
-class ProfileUpdateTest extends TestCase
+final class ProfileUpdateTest extends TestCase
 {
     use RefreshDatabase;
 

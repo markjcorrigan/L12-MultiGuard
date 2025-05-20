@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Auth;
 
 use Illuminate\Auth\Events\PasswordReset;
@@ -13,7 +15,7 @@ use Livewire\Attributes\Locked;
 use Livewire\Component;
 
 #[Layout('components.layouts.auth')]
-class ResetPassword extends Component
+final class ResetPassword extends Component
 {
     #[Locked]
     public string $token = '';
